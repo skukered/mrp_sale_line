@@ -10,17 +10,6 @@ from odoo.exceptions import UserError
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    """@api.multi
-    def _prepare_procurement_values(self, group_id=False):
-        values = super(
-            SaleOrderLine, self)._prepare_procurement_values(group_id)
-        self.ensure_one()
-        values.update({
-            'sale_line_id': self.id,
-        })
-        return values
-    """
-
     @api.multi
     def _action_launch_procurement_rule(self):
         precision = self.env['decimal.precision'].precision_get(
